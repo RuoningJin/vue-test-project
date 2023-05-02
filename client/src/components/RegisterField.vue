@@ -24,31 +24,57 @@ import AuthenticationService from '@/services/AuthenticationService';
 </script>
 
 <template>
-  <div>
-    <h1>Register</h1>
+  <v-layout column align="center">
+    <div class="white elevation-2">
+      <v-toolbar flat dense class="cyan" dark>
+        <v-toolbar-title>Register</v-toolbar-title>
+      </v-toolbar>
 
-    <input 
-      type="email" 
-      name="email"
-      v-model="email"
-      placeholder="email" />
-    <input 
-      type="password" 
-      name="password"
-      v-model="password"
-      placeholder="password" />
-    <br>
-    <div class="error" v-html="error" />
-    <button
-      @click='register'
-    >
-      Register
-    </button>
-  </div>
+      <div class="pl-4 pr-4 pt=2 pb=2">
+        <v-text-field 
+          label="Email" 
+          variant="outlined"
+          v-model="email"
+        ></v-text-field>
+        <v-text-field 
+          label="Password" 
+          variant="outlined"
+          v-model="password"
+        ></v-text-field>
+        <br>
+        <div class="error" v-html="error" />
+        <v-btn
+          class="cyan"
+          @click='register'
+        >
+          Register
+        </v-btn>
+      </div>
+    </div>
+  <v-flex xs6 offset-xs3>
+  </v-flex>
+  </v-layout>
 </template>
 
 <style scoped>
 .error {
   color: red;
+}
+.v-layout {
+  margin-top: 10vh;
+}
+.v-toolbar {
+  height: auto;
+  margin-bottom: 3vh;
+}
+.v-toolbar-title {
+  font-size: 48px;
+  line-height: inherit;
+}
+.v-text-field {
+  width: 50vw;
+}
+.v-btn {
+  margin-bottom: 2vh;
 }
 </style>
