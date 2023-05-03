@@ -26,19 +26,19 @@ import AuthenticationService from '@/services/AuthenticationService';
 <template>
   <v-layout column align="center">
     <div class="white elevation-2">
-      <v-toolbar flat dense class="cyan" dark>
+      <v-toolbar flat dense class="cyan">
         <v-toolbar-title>Register</v-toolbar-title>
       </v-toolbar>
 
       <div class="pl-4 pr-4 pt=2 pb=2">
         <v-text-field 
           label="Email" 
-          variant="outlined"
+          variant="underlined"
           v-model="email"
         ></v-text-field>
         <v-text-field 
           label="Password" 
-          variant="outlined"
+          variant="underlined"
           v-model="password"
         ></v-text-field>
         <br>
@@ -76,5 +76,8 @@ import AuthenticationService from '@/services/AuthenticationService';
 }
 .v-btn {
   margin-bottom: 2vh;
+}
+.v-toolbar__content > .v-toolbar-title {
+    margin-inline-start: 0;
 }
 </style>
