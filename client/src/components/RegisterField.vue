@@ -62,6 +62,7 @@ import AuthenticationService from '@/services/AuthenticationService';
 }
 .v-layout {
   margin-top: 10vh;
+  justify-content: center;
 }
 .v-toolbar {
   height: auto;

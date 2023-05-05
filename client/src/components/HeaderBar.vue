@@ -1,3 +1,6 @@
+<script setup>
+import { RouterLink } from 'vue-router';
+</script>
 <template>
 <v-card
     class="mx-auto"
@@ -8,17 +11,40 @@
         color="rgb(238, 238, 238)"
         density="compact"
       >
-        <template v-slot:prepend>
+        <!-- <template v-slot:prepend>
           <v-app-bar-nav-icon></v-app-bar-nav-icon>
-        </template>
+        </template> -->
 
-        <v-app-bar-title>VueTest</v-app-bar-title>
-
-        <template v-slot:append>
+        <v-app-bar-title>
+          <RouterLink to="/home">
+            <span>
+              TestApp
+            </span>
+          </RouterLink>
+        </v-app-bar-title>
+        
+        <nav>
+          <RouterLink to="/register">
+            <v-btn>
+              Sign Up
+            </v-btn>
+          </RouterLink>
+        </nav>
+        <!-- <template v-slot:append>
           <v-btn icon="mdi-dots-vertical"></v-btn>
-        </template>
+        </template> -->
       </v-app-bar>
 
     </v-layout>
   </v-card>
 </template>
+
+<style>
+  .v-card {
+    z-index: 9999 !important;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+</style>
