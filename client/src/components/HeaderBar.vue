@@ -16,7 +16,7 @@ import { RouterLink } from 'vue-router';
         </template> -->
 
         <v-app-bar-title>
-          <RouterLink to="/home">
+          <RouterLink to="/">
             <span>
               TestApp
             </span>
@@ -24,11 +24,17 @@ import { RouterLink } from 'vue-router';
         </v-app-bar-title>
         
         <nav>
+          <RouterLink to="/login">
+            <v-btn>
+              LogIn
+            </v-btn>
+          </RouterLink>
           <RouterLink to="/register">
             <v-btn>
               Sign Up
             </v-btn>
           </RouterLink>
+          
         </nav>
         <!-- <template v-slot:append>
           <v-btn icon="mdi-dots-vertical"></v-btn>
