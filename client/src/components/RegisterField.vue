@@ -38,6 +38,7 @@ import AuthenticationService from '@/services/AuthenticationService';
         ></v-text-field>
         <v-text-field 
           label="Password" 
+          type="password"
           variant="underlined"
           v-model="password"
         ></v-text-field>
