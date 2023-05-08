@@ -1,11 +1,11 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService';
-import { useStore } from '../stores/Store';
+import { useUserStore } from '../stores/UserStore';
 
   export default {
     setup() {
-      const store = useStore();
-      return {store};
+      const userStore = useUserStore();
+      return {userStore};
     },
     data() {
       return {
@@ -21,8 +21,8 @@ import { useStore } from '../stores/Store';
             email: this.email,
             password: this.password
           })
-          await this.store.setToken(response.data.token);
-          await this.store.setUser(response.data.user);
+          await this.userStore.setToken(response.data.token);
+          await this.userStore.setUser(response.data.user);
           // store.dispatch('setToken', response.data.token);
           // store.dispatch('setUser', response.data.user);
         } catch (error) {
@@ -62,8 +62,7 @@ import { useStore } from '../stores/Store';
         </v-btn>
       </div>
     </div>
-  <v-flex xs6 offset-xs3>
-  </v-flex>
+ 
   </v-layout>
 </template>
 

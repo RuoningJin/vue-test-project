@@ -1,6 +1,12 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService';
+import { useUserStore } from '../stores/UserStore';
+
   export default {
+    setup() {
+      const userStore = useUserStore();
+      return {userStore};
+    },
     data() {
       return {
         email: '',
@@ -15,8 +21,8 @@ import AuthenticationService from '@/services/AuthenticationService';
             email: this.email,
             password: this.password
           })
-          await this.store.setToken(response.data.token);
-          await this.store.setUser(response.data.user);
+          await this.userStore.setToken(response.data.token);
+          await this.userStore.setUser(response.data.user);
         } catch (error) {
           this.error = error.response.data.error;
         }
@@ -54,8 +60,6 @@ import AuthenticationService from '@/services/AuthenticationService';
         </v-btn>
       </div>
     </div>
-  <v-flex xs6 offset-xs3>
-  </v-flex>
   </v-layout>
 </template>
 

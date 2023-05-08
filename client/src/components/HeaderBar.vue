@@ -1,5 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import { useUserStore } from '../stores/UserStore';
+const userStore = useUserStore();
 </script>
 <template>
 <v-card
@@ -25,16 +27,19 @@ import { RouterLink } from 'vue-router';
         
         <nav>
           <RouterLink to="/login">
-            <v-btn>
+            <v-btn
+            v-if="!userStore.isUserLoggedIn"
+            >
               LogIn
             </v-btn>
           </RouterLink>
           <RouterLink to="/register">
-            <v-btn>
+            <v-btn
+            v-if="!userStore.isUserLoggedIn"
+            >
               Sign Up
             </v-btn>
           </RouterLink>
-          
         </nav>
         <!-- <template v-slot:append>
           <v-btn icon="mdi-dots-vertical"></v-btn>
