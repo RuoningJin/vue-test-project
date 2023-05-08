@@ -1,6 +1,12 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService';
+import { useStore } from '../stores/Store';
+
   export default {
+    setup() {
+      const store = useStore();
+      return {store};
+    },
     data() {
       return {
         email: '',
@@ -11,10 +17,14 @@ import AuthenticationService from '@/services/AuthenticationService';
     methods: {
       async login() {
         try {
-          await AuthenticationService.login({
+          const response = await AuthenticationService.login({
             email: this.email,
             password: this.password
           })
+          await this.store.setToken(response.data.token);
+          await this.store.setUser(response.data.user);
+          // store.dispatch('setToken', response.data.token);
+          // store.dispatch('setUser', response.data.user);
         } catch (error) {
           this.error = error.response.data.error;
         }
