@@ -4,7 +4,8 @@ export const useStore = defineStore ('Store', {
   state: () => {
     return {
       token: null,
-      user: null
+      user: null,
+      isUserLoggedIn: false
     }
   },
   actions: {
@@ -13,7 +14,9 @@ export const useStore = defineStore ('Store', {
     },
     async setUser(token) {
       this.user = token;
+    },
+    async setIsUserLoggedIn(token) {
+      this.user = token;
     }
   }
-  // getters
 })
