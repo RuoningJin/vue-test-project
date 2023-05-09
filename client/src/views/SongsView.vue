@@ -1,12 +1,7 @@
 <script setup>
-import PanelComponent from '../components/PanelComponent.vue';
+import SongsPanel from '../components/SongsPanel.vue'
 </script>
 
 <template>
-  <PanelComponent title="Songs">
-  </PanelComponent>
+  <SongsPanel />
 </template>
-
-<style scoped>
-
-</style>
