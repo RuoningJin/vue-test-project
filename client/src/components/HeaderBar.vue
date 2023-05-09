@@ -2,6 +2,11 @@
 import { RouterLink } from 'vue-router';
 import { useUserStore } from '../stores/UserStore';
 const userStore = useUserStore();
+
+function logout() {
+  userStore.setToken(null);
+  userStore.setUser(null);
+}
 </script>
 <template>
 <v-card
@@ -40,6 +45,15 @@ const userStore = useUserStore();
               Sign Up
             </v-btn>
           </RouterLink>
+          <RouterLink to="/home">
+            <v-btn
+            v-if="userStore.isUserLoggedIn"
+            @click="logout"
+            >
+              Log Out
+            </v-btn>
+          </RouterLink>
+
         </nav>
         <!-- <template v-slot:append>
           <v-btn icon="mdi-dots-vertical"></v-btn>
