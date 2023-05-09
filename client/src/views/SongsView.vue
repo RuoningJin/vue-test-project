@@ -1,6 +1,7 @@
 <script setup>
+import SongsPanel from '../components/SongsPanel.vue'
 </script>
 
 <template>
-  <main></main>
+  <SongsPanel />
 </template>

@@ -1,10 +1,23 @@
 <script setup>
-import PanelComponent from './PanelComponent.vue';
+defineProps ({
+  title: String,
+})
 </script>
 
 <template>
-  <PanelComponent title="Songs">
-  </PanelComponent>
+  <v-layout column align="center">
+    <div class="white elevation-2">
+      <v-toolbar flat dense class="cyan">
+        <v-toolbar-title>{{title}}</v-toolbar-title>
+      </v-toolbar>
+
+      <div class="pl-4 pr-4 pt=2 pb=2">
+        <slot>
+        
+        </slot>
+      </div>
+    </div>
+  </v-layout>
 </template>
 
 <style scoped>
@@ -25,6 +38,9 @@ import PanelComponent from './PanelComponent.vue';
 }
 .v-text-field {
   width: 50vw;
+}
+.v-btn {
+  margin-bottom: 2vh;
 }
 .v-toolbar__content > .v-toolbar-title {
     margin-inline-start: 0;

@@ -1,66 +1,61 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService';
 import { useUserStore } from '../stores/UserStore';
+import PanelComponent from './PanelComponent.vue';
 
   export default {
     setup() {
-      const userStore = useUserStore();
-      return {userStore};
+        const userStore = useUserStore();
+        return { userStore };
     },
     data() {
-      return {
-        email: '',
-        password:'',
-        error: null
-      }
+        return {
+            email: "",
+            password: "",
+            error: null
+        };
     },
     methods: {
-      async register() {
-        try {
-          const response = await AuthenticationService.register({
-            email: this.email,
-            password: this.password
-          })
-          await this.userStore.setToken(response.data.token);
-          await this.userStore.setUser(response.data.user);
-        } catch (error) {
-          this.error = error.response.data.error;
+        async register() {
+            try {
+                const response = await AuthenticationService.register({
+                    email: this.email,
+                    password: this.password
+                });
+                await this.userStore.setToken(response.data.token);
+                await this.userStore.setUser(response.data.user);
+            }
+            catch (error) {
+                this.error = error.response.data.error;
+            }
         }
-      }
     },
-  }
+    components: { PanelComponent }
+}
 </script>
 
 <template>
-  <v-layout column align="center">
-    <div class="white elevation-2">
-      <v-toolbar flat dense class="cyan">
-        <v-toolbar-title>Register</v-toolbar-title>
-      </v-toolbar>
-
-      <div class="pl-4 pr-4 pt=2 pb=2">
-        <v-text-field 
-          label="Email" 
-          variant="underlined"
-          v-model="email"
-        ></v-text-field>
-        <v-text-field 
-          label="Password" 
-          type="password"
-          variant="underlined"
-          v-model="password"
-        ></v-text-field>
-        <br>
-        <div class="error" v-html="error" />
-        <v-btn
-          class="cyan"
-          @click='register'
-        >
-          Register
-        </v-btn>
-      </div>
-    </div>
-  </v-layout>
+  <PanelComponent title="Register">
+    <v-text-field 
+      label="Email" 
+      variant="underlined"
+      v-model="email"
+    ></v-text-field>
+    <v-text-field 
+      label="Password" 
+      type="password"
+      variant="underlined"
+      v-model="password"
+    ></v-text-field>
+    <br>
+    <div class="error" v-html="error" />
+    <v-btn
+      class="cyan"
+      @click='register'
+    >
+      Register
+    </v-btn>
+  </PanelComponent>
 </template>
 
 <style scoped>
