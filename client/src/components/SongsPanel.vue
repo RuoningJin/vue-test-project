@@ -8,25 +8,5 @@ import PanelComponent from './PanelComponent.vue';
 </template>
 
 <style scoped>
-.error {
-  color: red;
-}
-.v-layout {
-  margin-top: 10vh;
-  justify-content: center;
-}
-.v-toolbar {
-  height: auto;
-  margin-bottom: 3vh;
-}
-.v-toolbar-title {
-  font-size: 48px;
-  line-height: inherit;
-}
-.v-text-field {
-  width: 50vw;
-}
-.v-toolbar__content > .v-toolbar-title {
-    margin-inline-start: 0;
-}
+
 </style>
