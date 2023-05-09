@@ -31,6 +31,14 @@ function logout() {
         </v-app-bar-title>
         
         <nav>
+          <RouterLink to="/songs">
+            <v-btn
+            >
+              Browse
+            </v-btn>
+          </RouterLink>
+        </nav>
+        <template v-slot:append>
           <RouterLink to="/login">
             <v-btn
             v-if="!userStore.isUserLoggedIn"
@@ -53,8 +61,9 @@ function logout() {
               Log Out
             </v-btn>
           </RouterLink>
+        </template>
 
-        </nav>
+        
         <!-- <template v-slot:append>
           <v-btn icon="mdi-dots-vertical"></v-btn>
         </template> -->
@@ -71,5 +80,8 @@ function logout() {
   a {
     text-decoration: none;
     color: black;
+  }
+  .v-app-bar-title {
+    max-width: 100px;
   }
 </style>
