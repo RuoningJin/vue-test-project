@@ -1,21 +1,21 @@
 <script setup>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import PanelComponent from './PanelComponent.vue';
 import SongsService from '../services/SongsService';
-let songs = null;
 
-onMounted(() => {
-  songs = SongsService.index();
+const songs = ref([]);
+onMounted(async () => {
+  songs.value = (await SongsService.index()).data;
 })
 </script>
 
 <template>
   <PanelComponent title="Songs">
-    <li v-for="song in songs" :key="song.title">
+    <ul v-for="song in songs" :key="song.id">
       {{ song.title }} -
       {{ song.artist }} -
       {{ song.album }}
-    </li>
+    </ul>
   </PanelComponent>
 </template>
 
